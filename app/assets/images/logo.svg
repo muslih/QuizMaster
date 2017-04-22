@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="230"
+   height="41"
+   viewBox="0 0 230 40.999999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="quizmaster.svg">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4240"
+       x="-0.02059906"
+       width="1.0411981"
+       y="-0.14266051"
+       height="1.285321">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.8877441"
+         id="feGaussianBlur4242" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.8594117"
+     inkscape:cx="117.69807"
+     inkscape:cy="46.603283"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1280"
+     inkscape:window-height="752"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1011.3622)">
+    <g
+       id="g4244"
+       transform="translate(-151.552,627.1168)">
+      <text
+         transform="matrix(1.0043555,0,0,1.0043555,-0.66008298,-1.8521444)"
+         sodipodi:linespacing="125%"
+         id="text4200"
+         y="418.07648"
+         x="154.28571"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4240)"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none"
+           y="418.07648"
+           x="154.28571"
+           id="tspan4202"
+           sodipodi:role="line"><tspan
+             id="tspan4204"
+             style="fill:#00ccff;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none">Quiz</tspan><tspan
+             id="tspan4206"
+             style="fill:#e6e6e6;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none">Master</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40.17422104px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:4.01742172;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="154.29761"
+         y="418.04526"
+         id="text3392"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3394"
+           x="154.29761"
+           y="418.04526"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.17422104px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:#ffffff;stroke-width:4.01742172;stroke-miterlimit:4;stroke-dasharray:none"><tspan
+             style="fill:#00ccff;stroke:#ffffff;stroke-width:4.01742172;stroke-miterlimit:4;stroke-dasharray:none"
+             id="tspan3396">Quiz</tspan><tspan
+             style="fill:#e6e6e6;stroke:#ffffff;stroke-width:4.01742172;stroke-miterlimit:4;stroke-dasharray:none"
+             id="tspan3398">Master</tspan></tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3336"
+         y="418.04526"
+         x="154.29761"
+         style="font-style:normal;font-weight:normal;font-size:40.17422104px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.17422104px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
+           y="418.04526"
+           x="154.29761"
+           id="tspan3338"
+           sodipodi:role="line"><tspan
+             id="tspan3342"
+             style="fill:#00ccff">Quiz</tspan><tspan
+             id="tspan3344"
+             style="fill:#b3b3b3">Master</tspan></tspan></text>
+    </g>
+  </g>
+</svg>

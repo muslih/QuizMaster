@@ -1,19 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe SessionController, type: :controller do
-  # let!(:user) {Fabricate(:user)}
+  let(:user)  { build :user }
   
   describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
+    context "unauthenticated users" do
+      it "returns http success" do
+        it { should respond_with :ok }
+        it { should render_with_layout :dashboard }
+        it { should render_template('index') }
+        #get :new
+        #expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "authenticated users" do
+
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  describe "POST #create" do
+    context "successfull signin" do
+      before do 
+        post :create, {email: user.email, password: user.password}
+      end 
+      
+      it "redirect to root path" do
+        expect(response).to redirect_to root_path
+      end
+
+      it "set success flash message" do
+        expect(flash[:success]).to eq("Sign in successfull")
+      end
+
+    end
+
+    context "unsuccessful signin" do
+
     end
   end
 

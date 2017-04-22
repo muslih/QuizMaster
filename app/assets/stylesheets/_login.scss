@@ -1,0 +1,124 @@
+#login-page{
+	background-color:#000;
+	color:#fff;
+	&:after{
+    content: "";
+    background-image:image-url("login-bg.jpg");
+  	background-size: cover;
+    background-position:top center;
+  	background-attachment: fixed; 
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  #logo{
+    filter: drop-shadow(0 0 10px #000);
+  }
+
+  .alert{
+    font-size: 12px;
+    text-shadow: none;}
+
+  .row{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    position:relative;
+  }
+  .loginform{
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    height: auto;
+    padding: 15px 10px;
+    max-width: 300px;
+    margin:auto !important;
+    a{
+      font-weight: 400;
+      &.btn{
+       text-shadow: none;
+      }
+    }
+    // @media (min-width: $screen-lg-min) {
+    //   position: absolute;
+    //   right: 0;
+    //   top:50%;
+    //   transform: translate(0,-50%);
+    // }
+    .page-header{
+      padding:15px;
+      margin:0;
+    }
+    section{
+      padding:2em 0em 1em 0em;
+      .login-content{
+        margin:1.5em auto auto auto;
+        display: block;
+      }
+    }
+    h4{
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+    .form-group{
+      margin-bottom:0;
+    }
+  }
+
+  form{
+    h3{
+      margin-top: 0;
+      color:#fff;
+    }
+    display: none;
+
+    input{
+      text-align: center;
+    }
+
+    input:first-child{
+      border-radius:4px 4px 0 0;
+    }
+    input:last-child{
+      border-radius:0 0 4px 4px;
+    }
+    .btn-group{
+      margin-top: 15px;
+    }
+
+    .back-button{
+      border-radius: 4px 0 0 4px;
+    }
+    .submit-button{
+      border-radius: 0 4px 4px 0 !important;
+    }
+  }
+
+  section, footer{
+    font-weight: 300;
+      color:rgba(#fff,.9);
+      text-shadow: 0 0 10px #000;
+      margin:auto;
+      text-align: center;
+  }
+  footer{
+    padding:important;
+    // text-shadow: 0 0 5px #fff;
+    a{
+      color:darken(#fff,5%);
+      font-weight: 400;
+      &:hover{
+        color:darken(#fff,15%);
+      }
+      &.btn{
+       text-shadow: none;
+      }
+    }
+  }
+}
+

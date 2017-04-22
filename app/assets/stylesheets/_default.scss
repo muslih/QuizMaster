@@ -1,0 +1,97 @@
+a{
+  color:#00c5ff;
+}
+#navtop{
+  background: #00c5ff;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  padding: 6px 0;
+
+  color:#fff;
+  a{
+    color:#fff;
+  }
+}
+
+.btn-current{
+  background: transparent !important;
+  border:solid 1px $brand-info;
+}
+
+nav{
+  background: whitesmoke;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 25px;
+  .navbar-nav > li > a{
+    padding-top: 25px;
+    padding-bottom: 25px;
+  } 
+}
+
+ul.nomargin{
+  margin-top: 10px;
+  padding:0;
+  li{
+    list-style: none;
+    margin-bottom: 10px;
+  }
+}
+
+.alert-notice{
+  @extend .alert-success
+}
+
+#countdown{
+  font-size: 4.5em;
+}
+
+.title{
+  border-bottom:solid 1px darken(#eee,5%);
+  padding-bottom: 10px;
+}
+
+.field_with_errors{
+  input{
+    border: solid 1px $brand-danger;
+  }
+  .error, input{
+    color:$brand-danger;
+    margin-bottom: 5px;
+  }
+}
+
+.page-header{
+  margin:0 0 20px
+}
+
+.widget{
+  .page-header{
+    margin:0 0 15px 0;
+  }
+  margin-bottom: 25px;
+}
+
+.exam-box{
+
+  text-align: center;
+  padding:0;
+  li{
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 5px;
+  }
+}
+
+.exam {
+  ol{
+    padding-left: 15px;
+    margin-top: 20px;
+  }
+  li{
+    list-style-type: lower-alpha;
+  }
+}
+.exam-number{
+  float: left;
+  margin-right: 5px;
+}

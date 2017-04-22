@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe SessionController, type: :controller do
-  let(:user)  { build :user }
+  let(:user) { build :user}
   
   describe "GET #new" do
     context "unauthenticated users" do
+      setup { get :new }
       it "returns http success" do
-        it { should respond_with :ok }
-        it { should render_with_layout :dashboard }
-        it { should render_template('index') }
+        should respond_with :ok
+        should render_with_layout :login
+        should render_template('new')
         #get :new
         #expect(response).to have_http_status(:success)
       end
@@ -18,6 +19,8 @@ RSpec.describe SessionController, type: :controller do
 
     end
   end
+
+  
 
   describe "POST #create" do
     context "successfull signin" do

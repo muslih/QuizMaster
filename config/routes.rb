@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'session/new'
+  get '/signin', to: 'session#new', as: 'signin'
 
   get 'session/create'
 

@@ -1,0 +1,51 @@
+<div class="form-group login-method">
+    <p>
+      Please Choose a Login Method 
+    </p>
+    <a class="btn btn-block btn-social btn-twitter" onclick="loginform('.teacher-form')">
+      <span class="fa fa-briefcase"></span> Sign in as a teacher
+    </a>
+    
+    <a class="btn btn-block btn-social btn-google" onclick="loginform('.participant-form')">
+      <span class="fa fa-book"></span> Sign in as a participant
+    </a>
+</div>
+
+<form name="login" action="http://login.smdwifi.co.id/login" method="post" class="teacher-form" >
+  <h3>Teacher Login</h3>
+  <p>
+      Type your email and password below!
+    </p>
+  <div class="form-group">
+    <input type="text" name="username" value="" class="form-control" placeholder="Email" />
+    <input type="password" name="password" value="" class="form-control" placeholder="Password" />
+  </div>
+  <div class="btn-group btn-group-justified" role="group" >
+    <div class="btn-group" role="group">
+      <a class="btn btn-warning back-button" onclick="loginform('.teacher-form')" data-target=".form-group">Back</a>
+    </div>
+    <div class="btn-group" role="group">
+      <input type="submit" class="btn btn-primary submit-button" value="Login">
+    </div> 
+  </div>
+  
+</form>
+
+<form name="login" action="http://login.smdwifi.co.id/login" method="post" class="participant-form" >
+  <h3>Participant Login</h3>
+  <p>
+      Type your quiz code to start quiz!
+    </p>
+  <div class="form-group">
+    <input type="text" name="username" value="" class="form-control" placeholder="code" />
+  </div>
+  <div class="btn-group btn-group-justified" role="group" >
+    <div class="btn-group" role="group">
+      <a class="btn btn-warning back-button" onclick="loginform('.participant-form')">Back</a>
+    </div>
+    <div class="btn-group" role="group">
+      <input type="submit" class="btn btn-primary submit-button" value="Login">
+    </div> 
+  </div>
+  
+</form>

@@ -1,16 +1,5 @@
 <%= form_for(@question) do |f| %>
-  <% if @question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
-
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  
   <div class="form-group">
     <%= f.label :content, "Question" %><br>
     <%= f.text_area :content,:class=>"form-control" %>
@@ -29,22 +18,6 @@
           <%= answer.check_box :right %> <%= answer.label :right, "Check if it the correct answer!" %>
         </div>
       </div>
-
-       <script type="text/javascript">
-        // tinyMCE.init({
-        //   selector: 'textarea#question_content',
-        //   theme: 'modern',
-        //   plugins: [
-        //     'advlist autolink lists link  charmap preview hr anchor pagebreak',
-        //     'searchreplace wordcount visualblocks visualchars code fullscreen',
-        //     'insertdatetime nonbreaking save table contextmenu directionality',
-        //     'emoticons template paste textcolor colorpicker textpattern code '
-        //   ],
-        //   menubar: false,
-        //   toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link table | preview | forecolor backcolor emoticons | code',
-        //   language: 'id'
-        // });
-      </script>
     <% end %>
   </div>
 

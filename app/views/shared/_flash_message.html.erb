@@ -1,0 +1,29 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %> alert-dismissable" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= value %>
+    
+    <% if message.try(:errors).try(:any?) %>
+      <hr>
+      <strong>Ups! <%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</strong>    
+      <ul id="error_explanation">
+      <% @debug = true %>
+      <% if @debug %>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% else %>  
+        <%  message.errors.each do |attr, message| %>
+          <li><%= message.split("").join("") %> </li>
+        <% end %>
+      </ul>
+      <% end %>
+    <%end %>
+
+  </div> 
+<% end %>
+
+
+    
+
+ 

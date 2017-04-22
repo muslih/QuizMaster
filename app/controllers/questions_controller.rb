@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    5.times {@question.answers.build}
+    4.times {@question.answers.build}
   end
 
   # GET /questions/1/edit
@@ -27,28 +27,26 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if @question.save
+      flash.now[:success] = 'Question was successfully created.' 
+      redirect_to @question
+    else
+      @model = @question
+      flash.now[:danger] = "Question can not be update!"
+      render :new
     end
   end
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
+    if @question.update_attributes(question_params)
+        flash.now[:success] = 'Question was successfully updated.'
+        redirect_to @question 
       else
-        format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+        @model = @question
+        flash.now[:danger] = "Question can not be update!"
+        render :new
     end
   end
 
@@ -70,6 +68,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:content,answers_attributes: [:id, :question_id, :content,:status])
+      params.require(:question).permit(:content,answers_attributes: [:id, :question_id, :content,:right])
     end
 end

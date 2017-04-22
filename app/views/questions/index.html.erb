@@ -16,10 +16,10 @@
     <% @questions.each_with_index do |question, index| %>
       <tr>
         <td><%= index + 1 %> </td>
-        <td><%= question.content %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= question.content.html_safe %></td>
+        <td><%= link_to 'Show', question,class:'btn btn-info btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_question_path(question),class:'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', question, method: :delete,class:'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

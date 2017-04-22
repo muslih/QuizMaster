@@ -1,4 +1,5 @@
 class Question < ApplicationRecord
+	include Bootsy::Container
   has_many :answers, dependent: :destroy, inverse_of: :question
   # has_many :exams, dependent: :destroy
 

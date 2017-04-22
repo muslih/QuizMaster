@@ -19,7 +19,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 
 # WYSIWYG
-gem 'tinymce-rails'
+gem 'bootsy'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -1,3 +1,50 @@
-<header>
-  <%= image_tag "logo.svg", alt:"QuizMaster", id:"logo"%>
-</header>  
+<nav role="navigation">
+  <div id="navtop">
+      <div class="container">
+        <div class="col-sm-12">           
+          Universitas Muhammadiyah Banjarmasin     
+          <div class="pull-right">
+          
+          Welcome <strong>Name </strong> |
+	  <%= link_to "Keluar", logout_path, method: "delete"%>
+          <% else %>
+          <%= link_to "Masuk", signin_path %> |
+          <%= link_to "Ujian", signin_path %> 
+          </div>       
+        </div>
+     </div>   
+  </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= render 'shared/logo' %>
+      </a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+      <!-- menu atas -->
+      <ul class="nav navbar-nav navbar-right navbar-user">
+        <li><%= link_to "Beranda", root_path%></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Master Data<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to questions_path do %>
+              Master Soal <span class="badge"><%= Question.all.count %></span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+       
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    
+  </div><!-- .container -->
+</nav>

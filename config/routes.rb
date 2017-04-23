@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # resources :answers
   resources :questions
   resources :users
+  resources :exams, except: [:destroy]
 
   get '/signin', to: 'session#new', as: 'signin'
   post '/signin', to: 'session#create'

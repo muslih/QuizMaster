@@ -16,6 +16,7 @@
             <%= render 'shared/logo' %>
           </header>  
           <section>
+            <%= render 'shared/flash_message', message: @model %>
             <%= yield %>
           </section>
           <%= render 'shared/footer' %>

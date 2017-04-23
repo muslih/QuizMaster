@@ -1,0 +1,22 @@
+<%= form_tag signin_path, class: "participant-form" do %>
+  <h3>Participant Login</h3>
+  <p>
+    Type your quiz code to start quiz!
+  </p>
+  
+  <div class="form-group">
+    <%= text_field_tag :code, params[:email], class:"form-control",placeholder:"Quiz Code", required:true %>
+  </div>
+
+  <div class="btn-group btn-group-justified" role="group" >
+    <div class="btn-group" role="group">
+      <a class="btn btn-warning back-button" onclick="loginform('.participant-form')" data-target=".form-group">Back</a>
+    </div>
+    <div class="btn-group" role="group">
+      <%= submit_tag "Signin", class:"btn btn-primary submit-button btn-block", data: {disable_with:"Loading..."} %>
+    </div> 
+  </div>
+<% end %>
+
+
+

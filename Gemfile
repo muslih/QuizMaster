@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 
+gem 'responders'
+
 # WYSIWYG
 gem 'bootsy'
 

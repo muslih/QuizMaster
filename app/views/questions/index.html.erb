@@ -17,9 +17,10 @@
       <tr>
         <td><%= index + 1 %> </td>
         <td><%= question.content.html_safe %></td>
-        <td><%= link_to 'Show', question,class:'btn btn-info btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_question_path(question),class:'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', question, method: :delete,class:'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', question,class:'btn btn-info btn-xs' %>
+          <%= link_to 'Edit', edit_question_path(question),class:'btn btn-warning btn-xs' %>
+          <%= link_to 'Destroy', question, method: :delete,class:'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

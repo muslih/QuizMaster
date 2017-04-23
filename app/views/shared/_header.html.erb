@@ -4,8 +4,10 @@
         <div class="col-sm-12">           
           Implementation of Quipper's coding test.
           <div class="pull-right">
+          <% if logged_in? %>
           Welcome <strong><%= current_user.name %> </strong> |
 	         <%= link_to "Signout", signout_path, method: "delete"%>
+          <% end %>
           </div>       
         </div>
      </div>   
@@ -22,6 +24,7 @@
         <%= render 'shared/logo' %>
       </a>
     </div>
-  <%= render 'shared/nav' %>
+
+    <%= render 'shared/nav' if logged_in? %>
   </div><!-- .container -->
 </nav>

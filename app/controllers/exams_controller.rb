@@ -9,7 +9,7 @@ class ExamsController < ApplicationController
 
   def index
     # @exams = Exam.all
-    # generate_soal
+    # generate_questions
     redirect_to new_exam_path
   end
 
@@ -25,7 +25,7 @@ class ExamsController < ApplicationController
       redirect_to ujian_path
       @data = true
     else
-      generate_soal
+      generate_questions
       @data = false
       redirect_to ujian_path
       # @exam = Exam.new
@@ -60,7 +60,7 @@ class ExamsController < ApplicationController
     respond_to do |format|
       if @exam.update(exam_params)
         if params[:lanjut].present?
-          if params[:lanjut]  == "Lanjut"
+          if params[:lanjut]  == "Next"
             format.html { redirect_to edit_exam_path(@exam.next.id)}#, notice: 'Lanjut.' }
             format.json { render :show, status: :ok, location: @exam }
             format.js { redirect_to edit_exam_path(@exam.next.id)}
@@ -78,8 +78,6 @@ class ExamsController < ApplicationController
 
         if params[:finish].present?
           format.js {render :js => "window.location = '#{stats_exam_path}'"}
-          # format.html { redirect_to stats_exam_path}
-          # format.js { render ajax_redirect_to(stats_exam_path) }
         end
 
 
@@ -146,12 +144,12 @@ class ExamsController < ApplicationController
       params.require(:exam).permit(:participant_id, :question_id, :answer_id,:doubt,:status)
     end
 
-    def generate_soal
+    def generate_questions
       @soal = @participant.q_list.split(",").map(&:to_i)
 
       @soal.each do |s|
         @question = Question.find(s.to_i)
-        @participant.exams.create(:question_id => s,:category_id => @question.category_id)
+        @participant.exams.create(:question_id => s)
       end
 
       return @exam = @participant.exams.first

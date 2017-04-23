@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :login_only!
+  before_action :teacher_only!
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

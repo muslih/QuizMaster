@@ -1,0 +1,25 @@
+// <!-- alert("test waluh") -->
+$('.exam-question').html("<%=j render('edit_exam') %>")
+
+var pilih_jawaban;
+pilih_jawaban = function(source, target) {
+
+  $(source).click(function() {
+    var ini;
+    ini = $(this);
+    if (ini.is(':checked')) {
+      $(target).val(ini.data('id'));
+    }
+  });
+
+  if($(target).val() !== ''){
+
+    var select;
+    select = $(target).val();
+    $('*[data-id="'+select+'"]').attr('checked', 'checked');
+    console.log(select)
+  }
+};
+$('document').ready(function(){
+  pilih_jawaban('input.answer','#exam_answer_id')
+})

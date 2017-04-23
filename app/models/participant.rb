@@ -32,15 +32,15 @@ class Participant < ApplicationRecord
   end
 
   def self.nomor_soal(id,no)
-    @student = Student.find(id)
+    @participant = Participant.find(id)
     @a = 1
-    @student.exams.each do |soal|
+    @participant.exams.each do |soal|
       if soal.id == no
         @data = @a
       end
       @a = @a + 1
     end
-    return "#{@data} ) . "
+    return "#{@data}"
   end
 
   def default_values

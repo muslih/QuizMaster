@@ -1,6 +1,8 @@
 class StaticController < ApplicationController
 	before_action :login_only!
-	# before_action :teacher_only!
+	before_action :teacher_only!, except: [:exam]
+  before_action :set_participant,only: [:exam]
+  
   def dashboard
   end
 
@@ -9,4 +11,8 @@ class StaticController < ApplicationController
 
   def update
   end
+
+  def exam
+  end
+  
 end

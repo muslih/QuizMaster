@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
   resources :participants
-  # resources :answers
   resources :questions
   resources :users
   resources :exams, except: [:destroy]
@@ -19,7 +18,12 @@ Rails.application.routes.draw do
 
   get '/setting', to: 'static#setting', as: 'setting'
 
+  get '/exam'  => 'static#exam', as: :ujian
+  patch '/finish_exam' => 'exams#finish', as: :finish_exam
+
   root 'static#dashboard'
+
+
  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

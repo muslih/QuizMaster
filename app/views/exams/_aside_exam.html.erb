@@ -1,0 +1,21 @@
+<div class="widget">
+  <h3 class="page-header">Description Sign</h3>
+  <ul class="nomargin">
+    <li>
+      <button class="btn btn-xs btn-info">-  </button> : current question
+    </li>
+    <li>
+      <button class="btn btn-xs btn-default">-  </button> : blank answer
+    </li>
+    <li>
+      <button class="btn btn-xs btn-success">-  </button> : answered question
+    </li>
+    <li>
+      <button class="btn btn-xs btn-warning">-  </button> : doubt answer
+    </li>
+  </ul>
+</div>
+
+
+
+<%= link_to "Selesai", finish_exam_path, :method=> "patch",:class=> "btn btn-danger selesai", data: { disable_with: "Prosess..."},:style=>"visibility:hidden"%>

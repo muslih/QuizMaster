@@ -105,12 +105,27 @@ ul.nomargin{
   }
   li{
     list-style-type: lower-alpha;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    input{
+      margin-right: 5px;
+    }
+    &:hover{
+      background:rgba($primary-color, .1);
+    }
   }
 }
+
+.exam-pagination{
+  overflow: initial !important;
+}
+
 .exam-number{
   float: left;
   margin-right: 5px;
 }
+
 
 .btn-primary{
   color: #fff;

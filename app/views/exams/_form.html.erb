@@ -51,58 +51,9 @@
   </script>
   <hr>
   <!-- pagination -->
-  <div class="form-group exam-pagination">
-    <% f.button :submit, "Simpan", :class=>"btn btn-primary" %>
-
-    <% if @exam.try(:previous).try(:id) %>
-
-    <%= f.button :submit, "Prev", :class=>"btn btn-warning pull-left",name: "lanjut", value: "Prev" %>
-    <% end %>
-
-    <% if @exam.try(:next).try(:id) %>
-      <%= f.button :submit, "Next", :class=>"btn btn-warning pull-right",name: "lanjut", value: "Next" %>
-    <% else %>
-      <%= f.button :submit, :class=>"btn btn-danger pull-right",name: "finish", value: "Finish Exam" %>
-      
-    <% end %>
-
-    <br>
-    <br>
-  </div>
-  <hr>
+  <%= render 'pagination_exam',f: f %>
 
   <!-- footer number -->
-  <% @a = 1 %>
-  <ul class="exam-box">
-    <% @participant.exams.each do |soal| %>
-      <li>
-        <% if soal.id == @exam.id %>
-          <%= f.button :button,:class=>"btn btn-info",name: "number", value: soal.id do %>
-            <%= @a %>
-          <% end %>
-          
-          <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-info" %>
-
-        <% elsif soal.doubt == true %>
-          <%= f.button :button,:class=>"btn btn-warning",name: "number", value: soal.id do %>
-            <%= @a %>
-          <% end %>
-
-          <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-warning" %>
-        
-        <% elsif soal.answer_id == '' or soal.answer_id.nil? %>
-          <%= f.button :button,:class=>"btn btn-default",name: "number", value: soal.id do %>
-            <%= @a %>
-          <% end %>
-          <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-default" %>
-        <% else %>
-          <%= f.button :button,:class=>"btn btn-success",name: "number", value: soal.id do %>
-            <%= @a %>
-          <% end %>
-          <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-success"  %>
-        <% end %>
-          <% @a = @a + 1 %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render 'number_exam',f: f %>
+  
 <% end %>

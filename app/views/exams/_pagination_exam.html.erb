@@ -1,0 +1,19 @@
+  <div class="form-group exam-pagination">
+    <% f.button :submit, "Simpan", :class=>"btn btn-primary" %>
+
+    <% if @exam.try(:previous).try(:id) %>
+
+    <%= f.button :submit, "Prev", :class=>"btn btn-warning pull-left",name: "lanjut", value: "Prev" %>
+    <% end %>
+
+    <% if @exam.try(:next).try(:id) %>
+      <%= f.button :submit, "Next", :class=>"btn btn-warning pull-right",name: "lanjut", value: "Next" %>
+    <% else %>
+      <%= f.button :submit, :class=>"btn btn-danger pull-right",name: "finish", value: "Finish Exam" %>
+      
+    <% end %>
+
+    <br>
+    <br>
+  </div>
+  <hr>

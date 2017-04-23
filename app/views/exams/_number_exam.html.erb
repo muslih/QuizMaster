@@ -1,0 +1,33 @@
+<% @a = 1 %>
+<ul class="exam-box">
+  <% @participant.exams.each do |soal| %>
+    <li>
+      <% if soal.id == @exam.id %>
+        <%= f.button :button,:class=>"btn btn-info",name: "number", value: soal.id do %>
+          <%= @a %>
+        <% end %>
+        
+        <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-info" %>
+
+      <% elsif soal.doubt == true %>
+        <%= f.button :button,:class=>"btn btn-warning",name: "number", value: soal.id do %>
+          <%= @a %>
+        <% end %>
+
+        <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-warning" %>
+      
+      <% elsif soal.answer_id == '' or soal.answer_id.nil? %>
+        <%= f.button :button,:class=>"btn btn-default",name: "number", value: soal.id do %>
+          <%= @a %>
+        <% end %>
+        <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-default" %>
+      <% else %>
+        <%= f.button :button,:class=>"btn btn-success",name: "number", value: soal.id do %>
+          <%= @a %>
+        <% end %>
+        <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-success"  %>
+      <% end %>
+        <% @a = @a + 1 %>
+    </li>
+  <% end %>
+</ul>

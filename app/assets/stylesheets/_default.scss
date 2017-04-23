@@ -11,10 +11,10 @@ body{
 }
 
 a{
-  color:#00c5ff;
+  color:$primary-color;
 }
 #navtop{
-  background: #00c5ff;
+  background: $primary-color;
   font-weight: 100;
   letter-spacing: 0.5px;
   padding: 6px 0;
@@ -110,11 +110,11 @@ ul.nomargin{
 
 .btn-primary{
   color: #fff;
-  background-color: #00c5ff;
-  border-color: darken(#00c5ff,5%);
+  background-color: $primary-color;
+  border-color: darken($primary-color,5%);
   &:hover{
-    background-color: darken(#00c5ff,10%);
-    border-color: darken(#00c5ff,15%);
+    background-color: darken($primary-color,10%);
+    border-color: darken($primary-color,15%);
   }
 }
 

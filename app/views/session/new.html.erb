@@ -11,25 +11,8 @@
     </a>
 </div>
 
-<form name="login" action="http://login.smdwifi.co.id/login" method="post" class="teacher-form" >
-  <h3>Teacher Login</h3>
-  <p>
-      Type your email and password below!
-    </p>
-  <div class="form-group">
-    <input type="text" name="username" value="" class="form-control" placeholder="Email" />
-    <input type="password" name="password" value="" class="form-control" placeholder="Password" />
-  </div>
-  <div class="btn-group btn-group-justified" role="group" >
-    <div class="btn-group" role="group">
-      <a class="btn btn-warning back-button" onclick="loginform('.teacher-form')" data-target=".form-group">Back</a>
-    </div>
-    <div class="btn-group" role="group">
-      <input type="submit" class="btn btn-primary submit-button" value="Login">
-    </div> 
-  </div>
-  
-</form>
+<%= render 'teacher_form' %>
+
 
 <form name="login" action="http://login.smdwifi.co.id/login" method="post" class="participant-form" >
   <h3>Participant Login</h3>
@@ -49,3 +32,4 @@
   </div>
   
 </form>
+<%= session[:user_id] %>

@@ -4,12 +4,8 @@
         <div class="col-sm-12">           
           Implementation of Quipper's coding test.
           <div class="pull-right">
-          
-          Welcome <strong>Name </strong> |
-	  <%= link_to "Keluar", logout_path, method: "delete"%>
-          <% else %>
-          <%= link_to "Masuk", signin_path %> |
-          <%= link_to "Ujian", signin_path %> 
+          Welcome <strong><%= current_user.name %> </strong> |
+	         <%= link_to "Signout", signout_path, method: "delete"%>
           </div>       
         </div>
      </div>   

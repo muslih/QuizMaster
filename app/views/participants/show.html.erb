@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h1 class="page-header">Participant Detail</h1>
 <p>
   <strong>Name:</strong>
   <%= @participant.name %>
@@ -7,12 +6,7 @@
 
 <p>
   <strong>Code:</strong>
-  <%= @participant.code %>
-</p>
-
-<p>
-  <strong>Q list:</strong>
-  <%= @participant.q_list %>
+  <code><%= @participant.code %></code>
 </p>
 
 <%= link_to 'Edit', edit_participant_path(@participant) %> |

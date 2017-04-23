@@ -1,4 +1,6 @@
 class Participant < ApplicationRecord
+  before_save :default_values
+
 	has_many :exams
   has_many :answers, :through => :exams
   has_many :questions, :through => :exams
@@ -24,23 +26,6 @@ class Participant < ApplicationRecord
     @ujian =  Student.where(:code => code).order('created_at DESC')
   end
 
-  # def self.rest_client(code)
-  #   @server = Setting.first
-    
-  #   @data = {code: code.to_s}
-  #   @uri = "http://#{@server.host}:#{@server.port}/#{@server.namespace}/getstudent"
-  #   rest_resource = RestClient::Resource.new(@uri)
-  #   begin
-  #     @request = rest_resource.get params:@data, :content_type => "application/json",:accept =>"application/json"
-  #     # @students = JSON.parse(@request).first
-  #     @student = JSON.parse(@request, :symbolize_names => true).first
-  #     # validate student data
-  #     return @student
-  #   rescue Exception => e
-  #    "Error"
-  #   end
-  # end
-
   def self.time(student)
     student.exams.first.created_at
   end
@@ -55,5 +40,10 @@ class Participant < ApplicationRecord
       @a = @a + 1
     end
     return "#{@data} ) . "
+  end
+
+  def default_values
+    val = ('0'..'9').to_a.shuffle.first(5).join
+    self.code ||= val.to_s
   end
 end

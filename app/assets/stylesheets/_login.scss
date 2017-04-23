@@ -81,10 +81,10 @@
       text-align: center;
     }
 
-    input:first-child{
+    input.first{
       border-radius:4px 4px 0 0;
     }
-    input:last-child{
+    input.last{
       border-radius:0 0 4px 4px;
     }
     .btn-group{

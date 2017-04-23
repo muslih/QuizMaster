@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'static/dashboard'
+
+  get 'static/setting'
+
+  get 'static/update'
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
   resources :participants
@@ -8,12 +14,11 @@ Rails.application.routes.draw do
 
   get '/signin', to: 'session#new', as: 'signin'
   post '/signin', to: 'session#create'
-  delete '/signout', to: 'session#destroy', as: 'logout'
+  delete '/signout', to: 'session#destroy', as: 'signout'
 
-  
+  get '/setting', to: 'static#setting', as: 'setting'
 
-  get 'session/create'
-  root 'session#new'
+  root 'static#dashboard'
  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

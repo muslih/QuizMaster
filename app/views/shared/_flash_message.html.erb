@@ -5,7 +5,7 @@
     
     <% if message.try(:errors).try(:any?) %>
       <hr>
-      <strong>Ups! <%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</strong>    
+      <strong>Ups! <%= pluralize(message.errors.count, "error") %> prohibited this question from being saved:</strong>    
       <ul id="error_explanation">
       <% @debug = true %>
       <% if @debug %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422170131) do
+ActiveRecord::Schema.define(version: 20170423020855) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20170422170131) do
     t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "exams", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.boolean  "status"
+    t.boolean  "doubt"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["answer_id"], name: "index_exams_on_answer_id"
+    t.index ["question_id"], name: "index_exams_on_question_id"
   end
 
   create_table "participants", force: :cascade do |t|

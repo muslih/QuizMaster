@@ -1,3 +1,7 @@
+.align-center{
+  text-align: center;
+}
+
 body{
   // background-color:#fff;
   background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
@@ -113,6 +117,16 @@ ul.nomargin{
     border-color: darken(#00c5ff,15%);
   }
 }
+
+
+.form-group{
+  overflow: hidden;
+  .control-label{
+    text-align: right;
+  }
+}
+
+
 
 footer{
   clear: both;

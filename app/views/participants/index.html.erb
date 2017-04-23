@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1 class="page-header">
+  Participants
+  <%= link_to 'New Participant', new_participant_path, class:'btn btn-primary pull-right' %>
+</h1>
 
-<h1>Participants</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,6 +27,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Participant', new_participant_path %>
+
+

@@ -1,0 +1,34 @@
+<h3 class="page-header">Answer Quiz Stats</h3>
+<p>
+  Are you sure to submit the Quiz with stats below?
+</p>
+<table class="table table-hover">
+  <tr>
+    <td>Blank Answer</td>
+    <td>:</td>
+    <td>
+      <strong><%= pluralize(@participant.blank, "answer") %></strong>
+    </td>
+  </tr>
+  <tr class="warning">
+    <td>Doubt Answer</td>
+    <td>:</td>
+    <td>
+      <strong><%= pluralize(@participant.doubt, "answer") %></strong>
+    </td>
+  </tr>
+  <tr class="success">
+    <td>Answered Question</td>
+    <td>:</td>
+    <td>
+      <strong><%= pluralize(@participant.answered, "answer") %></strong>
+    </td>
+  </tr>
+</table>
+<p>
+  You can go back to quiz by clicking <code>Back to Quiz`</code> Button below!
+</p>
+
+<a href="#"onclick="document.reload()" class="btn btn-warning pull-left">Back to Quiz</a>
+
+<%= link_to "Submit Quiz",submit_exam_path, class:"btn btn-danger pull-right", method:"PUT" %>

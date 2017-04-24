@@ -1,4 +1,5 @@
 <h3 class="page-header">Question Number <%= Participant.nomor_soal(@participant.id,@exam.id) %></h3>
+
 <%= simple_form_for(@exam,remote:true) do |f| %>
   <%= f.error_notification %>
 
@@ -51,9 +52,9 @@
   </script>
   <hr>
   <!-- pagination -->
-  <%= render 'pagination_exam',f: f %>
+  <%= render 'exams/pagination_exam',f: f %>
 
   <!-- footer number -->
-  <%= render 'number_exam',f: f %>
+  <%= render 'exams/number_exam',f: f %>
   
 <% end %>

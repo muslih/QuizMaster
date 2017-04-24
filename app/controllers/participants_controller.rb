@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
   before_action :set_participant, only: [:show, :edit, :update, :destroy]
+  before_action :teacher_only!, except: [:show,:submit]
 
   # GET /participants
   # GET /participants.json
@@ -26,15 +27,24 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
 
-    respond_to do |format|
-      if @participant.save
-        format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
-        format.json { render :show, status: :created, location: @participant }
-      else
-        format.html { render :new }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
-      end
+    if @participant.save
+      redirect_to participants_path
+      flash.now[:success]='Participant was successfully created.'
+    else
+      flash.now[:success]='Participant was unsuccessfully created.'
+      render :new
     end
+  end
+
+  def submit
+    if current_user.update(status:true)
+      flash[:success] = "Quiz was successfully submited."
+      redirect_to current_user
+    else
+      flash.now[:success] = "Quiz was successfully submited."
+      redirect_to first_exam_path
+    end
+
   end
 
   # PATCH/PUT /participants/1

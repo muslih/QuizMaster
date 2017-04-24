@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   get '/setting', to: 'static#setting', as: 'setting'
 
-  get '/exam'  => 'static#exam', as: :ujian
-  patch '/finish_exam' => 'exams#finish', as: :finish_exam
+  get '/exam'  => 'static#exam', as: :first_exam
+  put '/submit' => 'participants#submit', as: :submit_exam
 
   root 'static#dashboard'
 

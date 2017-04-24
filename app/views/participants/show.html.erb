@@ -1,13 +1,58 @@
-<h1 class="page-header">Participant Detail</h1>
-<p>
-  <strong>Name:</strong>
-  <%= @participant.name %>
-</p>
+<div class="row">
+	<div class="col-sm-6">
+		<h1 class="page-header">Participant Result</h1>
+		<table class="table table-striped">
+			<tr>
+				<td>
+					Name
+				</td>
+				<td>:</td>
+				<td>
+					<%= @participant.name %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Code
+				</td>
+				<td>:</td>
+				<td>
+					<code><%= @participant.code %></code>
+				</td>
+			</tr>
+			<tr>
+				<td>Correct Answers</td>
+				<td>:</td>
+				<td>
+					<%= @participant.result %>
+				</td>
+			</tr>
+			<tr>
+				<td>Result</td>
+				<td>:</td>
+				<td>
+					<%= @participant.percentage %>
+				</td>
+			</tr>
+		</table>
 
-<p>
-  <strong>Code:</strong>
-  <code><%= @participant.code %></code>
-</p>
+		<%= link_to 'Back', participants_path, class:"btn btn-warning" if teacher? %>
 
-<%= link_to 'Edit', edit_participant_path(@participant) %> |
-<%= link_to 'Back', participants_path %>
+	</div>
+	<div class="col-sm-6">
+		<h1 class="page-header">Answer Detail</h1>
+		<table class="table table-striped">
+			<tbody>
+				<% @participant.exams.each_with_index do |q,i| %>
+				<tr>
+					<td><%= i + 1 %></td>
+					<td><%= q.question.content.html_safe %></td>
+					<td>
+						<%= answer_status q.status %>
+					</td>
+				</tr>
+				<% end %> 
+			</tbody>
+		</table>
+	</div>
+</div>

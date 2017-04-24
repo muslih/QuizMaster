@@ -22,7 +22,7 @@
           <code><%= participant.code %></code>
         </td>
         <td>
-          <%= link_to 'Show', participant,class:'btn btn-info btn-xs' %>
+          <%= link_to 'Show Result', participant,class:'btn btn-info btn-xs' if participant.status %>
           <%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-warning btn-xs'%></td>
       </tr>
     <% end %>

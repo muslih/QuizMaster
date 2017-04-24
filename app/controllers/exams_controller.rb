@@ -1,8 +1,9 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_participant,except: [:grade,:grade_detail]
-  before_action :set_question, only: [:index, :new]
+  # before_action :set_question, only: [:index, :new]
   before_action :login_only!
+  before_action :quiz_check
 
   respond_to :html
   respond_to :js
@@ -10,7 +11,7 @@ class ExamsController < ApplicationController
   def index
     # @exams = Exam.all
     # generate_questions
-    redirect_to new_exam_path
+    # redirect_to new_exam_path
   end
 
   # GET /exams/1
@@ -22,12 +23,12 @@ class ExamsController < ApplicationController
   def new
     if @participant.exams.present?
       # redirect_to edit_exam_path(@participant.exams.first.id)
-      redirect_to ujian_path
+      redirect_to first_exam_path
       @data = true
     else
-      generate_questions
+      # generate_questions
       @data = false
-      redirect_to ujian_path
+      redirect_to first_exam_path
       # @exam = Exam.new
     end
 
@@ -77,7 +78,7 @@ class ExamsController < ApplicationController
         end
 
         if params[:finish].present?
-          format.js {render :js => "window.location = '#{stats_exam_path}'"}
+          format.js #{render :js => "window.location = '#{stats_exam_path}'"}
         end
 
 
@@ -96,40 +97,6 @@ class ExamsController < ApplicationController
       format.html { redirect_to exams_url, notice: 'Exam was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def finish
-    flash[:success] = "Anda sudah selesai mengerjakan Ujian One Day Service, silahkan ambil hasil kepada panitia!"
-    @participant.update(:status => true)
-
-    # GRAD RESULT
-    @max = Setting.first.grad
-
-    # @data = val.to_f/max.to_f*100
-    @data = (@participant.answers.where(:status=> true).count.to_f/@participant.exams.count.to_f) * 100
-    
-    @data.to_i
-
-    if @data >= @max
-      @result = true
-      update_participant(@participant.code, @result.to_s)
-      log_out
-      redirect_to root_path 
-    else
-      @result = false
-      update_participant(@participant.code, @result.to_s)
-      log_out
-      redirect_to root_path 
-    end
-  end
-
-  def grade
-    if params[:q]
-      @participants = participant.where(:code => params[:q]).order('created_at DESC')
-    end
-  end
-
-  def grade_detail
   end
 
   private
@@ -153,18 +120,6 @@ class ExamsController < ApplicationController
       end
 
       return @exam = @participant.exams.first
-    end
-
-    def update_participant(code, status)
-      @server = Setting.first
-      @data = {code: code,exam: status}
-      @uri = "#{@uri}updateparticipant?code=#{code}&exam=#{status}"
-      rest_resource = RestClient::Resource.new(@uri)
-      begin
-        @request = rest_resource.put :content_type => "application/json"
-      rescue Exception => e
-        return false
-      end
     end
 end
   

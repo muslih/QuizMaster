@@ -9,8 +9,7 @@
     <% if @exam.try(:next).try(:id) %>
       <%= f.button :submit, "Next", :class=>"btn btn-warning pull-right",name: "lanjut", value: "Next" %>
     <% else %>
-      <%= f.button :submit, :class=>"btn btn-danger pull-right",name: "finish", value: "Finish Exam" %>
-      
+      <%= f.button :submit, :class=>"btn btn-danger pull-right",name: "finish", value: "Finish Quiz!" %>
     <% end %>
 
     <br>

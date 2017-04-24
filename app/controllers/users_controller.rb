@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :login_only!
+  before_action :teacher_only!
 
   def index
     @users = User.all

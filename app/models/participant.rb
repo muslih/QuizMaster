@@ -2,10 +2,43 @@ class Participant < ApplicationRecord
   before_save :default_values
   before_save :random_question
 
-	has_many :exams
+	has_many :exams,dependent: :destroy
   has_many :answers, :through => :exams
   has_many :questions, :through => :exams
   
+
+  def blank
+    self.exams.where(answer_id:nil).count
+  end
+
+  def doubt
+    self.exams.where(doubt:true).count
+  end
+
+  def answered
+    self.exams.where.not(answer_id:nil).count
+  end
+
+  def correct_answers
+    self.exams.where(status:true).count
+  end
+
+  def result
+    "#{self.correct_answers} of #{self.questions.count} Questions"
+  end
+
+  def percentage
+    result = (correct_answers*100)/Question.count
+    "#{result} %"
+  end
+
+  def self.taken
+    where(status:true).count
+  end
+
+  def self.not_taken
+    where(status:false).count
+  end
 
   def self.doubt(id)
     @result = Exam.where(:participant_id => id,:doubt => true)

@@ -1,2 +1,42 @@
-<h1>Static#dashboard</h1>
-<p>Find me in app/views/static/dashboard.html.erb</p>
+<h1 class="page-header">Dashboard <small>QuizMaster</small></h1>
+<div class="row">
+	<div class="col-sm-3">
+		<div class="stats">
+			<span class="icon"><i class="fa fa-comment"></i></span>
+			<p>
+				<span class="number"><%= Question.count %></span>
+				<span class="title">Total Question</span>
+			</p>
+		</div>
+		
+	</div>
+	<div class="col-sm-3">
+		<div class="stats">
+			<span class="icon"><i class="fa fa-comments"></i></span>
+			<p>
+				<span class="number"><%= Participant.count %></span>
+				<span class="title">Total participant</span>
+			</p>
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div class="stats">
+			<span class="icon"><i class="fa fa-send"></i></span>
+			<p>
+				<span class="number"><%= Participant.taken %></span>
+				<span class="title">Total finished quiz</span>
+			</p>
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div class="stats">
+			<span class="icon"><i class="fa fa-headphones"></i></span>
+			<p>
+				<span class="number"><%= Participant.not_taken %></span>
+				<span class="title">Total unfinished quiz</span>
+			</p>
+		</div>
+	</div>
+</div>
+
+	

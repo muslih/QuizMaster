@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-9">
+    <h3 class="page-header">Quiz Master Test</h3>
+    <p>
+      The test contains <%= Question.count %> questions and there is no time limit.
+      The test is not official, it's just a nice way to see how much you know, or don't know, about English.
+    </p>
+
+    <p>
+      The answer will be in multiple choices, pick the correct answer
+    </p>
+
+
+    <h4>Count Your Score</h4>
+    <p>
+      You will get 1 point for each correct answer. At the end of the Quiz, your total score will be displayed. Maximum score is 5 points.
+    </p>
+
+    <strong>Good luck!</strong>
+    
+  </div>
+
+  <aside class="col-sm-3">
+    <h3 class="page-header">Are you ready?</h3>
+    <p>
+      When you ready to start the quiz, click <code>Start the Quiz</code> button below!
+    </p>
+    <%= link_to "Start the Quiz", new_exam_path, :class=> "btn btn-warning", data: { disable_with: "Prosess...",confirm: 'Are you sure to start quiz?'} %>
+
+  </aside>
+</div>

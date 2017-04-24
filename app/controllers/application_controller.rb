@@ -29,4 +29,9 @@ class ApplicationController < ActionController::Base
   def set_question
     @questions =  @participant.exams
   end
+
+  def quiz_check
+    redirect_to current_user if current_user.status
+    redirect_to root_path if teacher?
+  end
 end

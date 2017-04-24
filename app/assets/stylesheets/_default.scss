@@ -49,6 +49,51 @@ ul.nomargin{
   }
 }
 
+.stats{
+  transition:.5s;
+  border-radius: 3px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #DCE6EB;
+  overflow: hidden;
+  &:hover{
+    background:rgba(#DCE6EB,.5);
+    & > .icon{
+      bottom: 0px;
+    }
+  }
+  .icon{
+    transition:.5s;
+    border-radius: 50%;
+    float: left;
+    width: 60px;
+    height: 60px;
+    line-height: 65px;
+    background-color: $primary-color;
+    text-align: center;
+    position: relative;
+    right: 30px;
+    bottom:30px;
+    i{
+      font-size: 25px;
+      color: #fff;
+    }
+  }
+  p{
+    line-height: 1.2;
+    text-align: right;
+  }
+  .number{
+    display: block;
+    font-size: 28px;
+    font-weight: 300;
+  }
+  .title{
+    font-size: 15px;
+    border:none;
+  }
+}
+
 .navbar-brand{
   height: auto;
 }

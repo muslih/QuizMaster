@@ -25,6 +25,9 @@ gem 'responders'
 # WYSIWYG
 gem 'bootsy'
 
+# database migration
+gem 'yaml_db'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

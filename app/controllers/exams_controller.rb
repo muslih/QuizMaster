@@ -9,28 +9,18 @@ class ExamsController < ApplicationController
   respond_to :js
 
   def index
-    # @exams = Exam.all
-    # generate_questions
-    # redirect_to new_exam_path
+    redirect_to new_exam_path if current_user.exams.present?
   end
 
-  # GET /exams/1
-  # GET /exams/1.json
   def show
   end
 
   # GET /exams/new
   def new
-    if @participant.exams.present?
-      # redirect_to edit_exam_path(@participant.exams.first.id)
-      redirect_to first_exam_path
-      @data = true
-    else
-      # generate_questions
-      @data = false
-      redirect_to first_exam_path
-      # @exam = Exam.new
+    unless @participant.exams.present?
+      generate_questions
     end
+    @exam = current_user.exams.first
 
   # @participant = participant.find(session[:participant]['id'])
   end
@@ -41,19 +31,19 @@ class ExamsController < ApplicationController
 
   # POST /exams
   # POST /exams.json
-  def create
-    @exam = Exam.new(exam_params)
+  # def create
+  #   @exam = Exam.new(exam_params)
 
-    respond_to do |format|
-      if @exam.save
-        format.html { redirect_to exams_path, notice: 'Exam was successfully created.' }
-        format.json { render :show, status: :created, location: @exam }
-      else
-        format.html { render :new }
-        format.json { render json: @exam.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @exam.save
+  #       format.html { redirect_to exams_path, notice: 'Exam was successfully created.' }
+  #       format.json { render :show, status: :created, location: @exam }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @exam.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /exams/1
   # PATCH/PUT /exams/1.json

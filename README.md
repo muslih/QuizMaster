@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/muslih/QuizMaster.png)](https://travis-ci.org/muslih/QuizMaster)
+
 # README
 
 This README would normally document whatever steps are necessary to get the

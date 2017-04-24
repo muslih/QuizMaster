@@ -14,6 +14,5 @@ RSpec.describe Question, type: :model do
   		should accept_nested_attributes_for(:answers).
   		allow_destroy(true)
   	end
-  	
   end
 end

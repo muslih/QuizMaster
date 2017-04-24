@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'static/dashboard'
-
-  get 'static/setting'
-
-  get 'static/update'
-
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
+  get 'static/dashboard'
+
   resources :participants
   put '/submit' => 'participants#submit', as: :submit_exam
 

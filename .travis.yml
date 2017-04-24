@@ -1,0 +1,4 @@
+language: ruby
+rvm:
+  - ruby-2.3.1
+install: gem install rails

@@ -3,11 +3,11 @@
 
     <% if @exam.try(:previous).try(:id) %>
 
-    <%= f.button :submit, "Prev", :class=>"btn btn-warning pull-left",name: "lanjut", value: "Prev" %>
+    <%= f.button :submit, "Prev", :class=>"btn btn-warning pull-left",name: "lanjut", value: "Prev" ,remote:true %>
     <% end %>
 
     <% if @exam.try(:next).try(:id) %>
-      <%= f.button :submit, "Next", :class=>"btn btn-warning pull-right",name: "lanjut", value: "Next" %>
+      <%= f.button :submit, "Next", :class=>"btn btn-warning pull-right",name: "lanjut", value: "Next" ,remote:true%>
     <% else %>
       <%= f.button :submit, :class=>"btn btn-danger pull-right",name: "finish", value: "Finish Quiz!" %>
     <% end %>

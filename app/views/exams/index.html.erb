@@ -25,7 +25,7 @@
     <p>
       When you ready to start the quiz, click <code>Start the Quiz</code> button below!
     </p>
-    <%= link_to "Start the Quiz", new_exam_path, :class=> "btn btn-warning", data: { disable_with: "Prosess...",confirm: 'Are you sure to start quiz?'} %>
+    <%= link_to "Start the Quiz", new_exam_path, :class=> "btn btn-warning", remote:false,data: { disable_with: "Prosess...",confirm: 'Are you sure to start quiz?'} %>
 
   </aside>
 </div>

@@ -1,7 +1,6 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_participant,except: [:grade,:grade_detail]
-  # before_action :set_question, only: [:index, :new]
   before_action :login_only!
   before_action :quiz_check
 
@@ -21,30 +20,12 @@ class ExamsController < ApplicationController
       generate_questions
     end
     @exam = current_user.exams.first
-
-  # @participant = participant.find(session[:participant]['id'])
   end
 
   # GET /exams/1/edit
   def edit
   end
-
-  # POST /exams
-  # POST /exams.json
-  # def create
-  #   @exam = Exam.new(exam_params)
-
-  #   respond_to do |format|
-  #     if @exam.save
-  #       format.html { redirect_to exams_path, notice: 'Exam was successfully created.' }
-  #       format.json { render :show, status: :created, location: @exam }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @exam.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
+  
   # PATCH/PUT /exams/1
   # PATCH/PUT /exams/1.json
   def update
@@ -91,7 +72,6 @@ class ExamsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
     def set_exam
       @exam = Exam.find(params[:id])
     end

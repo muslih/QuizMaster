@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
   resources :participants
+  put '/submit' => 'participants#submit', as: :submit_exam
+
   resources :questions
   resources :users
   resources :exams, except: [:destroy]
@@ -16,15 +18,7 @@ Rails.application.routes.draw do
   post '/signin', to: 'session#create'
   delete '/signout', to: 'session#destroy', as: 'signout'
 
-  get '/setting', to: 'static#setting', as: 'setting'
-
-  get '/exam'  => 'static#exam', as: :first_exam
-  put '/submit' => 'participants#submit', as: :submit_exam
-
   root 'static#dashboard'
-
-
- 
-
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

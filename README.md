@@ -1,8 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+Quiz Master is Quipper's technical exam for web developers
 Things you may want to cover:
 
 * Ruby version

@@ -3,9 +3,10 @@ class Participant < ApplicationRecord
   before_save :random_question
 
 	has_many :exams,dependent: :destroy
-  has_many :answers, :through => :exams
-  has_many :questions, :through => :exams
+  has_many :answers, through: :exams
+  has_many :questions, through: :exams
   
+  validates :name, presence: true
 
   def blank
     self.exams.where(answer_id:nil).count
@@ -46,22 +47,14 @@ class Participant < ApplicationRecord
   end
 
   def self.jawab(id)
-    @student = Student.find(id)
-    @student.exams.where.not(answer_id: nil).count
+    @participant = Participant.find(id)
+    @participant.exams.where.not(answer_id: nil).count
     # @result = Exam.where(:participant_id => id).not(:answer_id => nil)
     # return @result.count
   end 
 
   def self.blank(id)
     @result = Exam.where(:participant_id => id,:answer_id => nil).count
-  end
-
-  def self.ujian(code)
-    @ujian =  Student.where(:code => code).order('created_at DESC')
-  end
-
-  def self.time(student)
-    student.exams.first.created_at
   end
 
   def self.nomor_soal(id,no)

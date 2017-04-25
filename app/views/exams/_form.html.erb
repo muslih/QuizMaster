@@ -10,7 +10,10 @@
     <div class="exam-nomor">
       <%= @exam.question.content.html_safe %>  
     </div> 
+    
+    <% if @exam.question.answer_type == 'text' %>
 
+    <% else %>
     <ol>
       <% @exam.question.answers.each do |jawaban| %>
 
@@ -23,6 +26,8 @@
     <div class="col-sm-12" style="padding-left:20px">
       <%= f.input :doubt ,label: "Doubt answer" %>
     </div>
+
+    <% end %>
   </div>
 
   <script>

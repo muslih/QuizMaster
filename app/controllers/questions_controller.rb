@@ -42,6 +42,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+    # filtered_params 
     if @question.update_attributes(question_params)
         flash.now[:success] = 'Question was successfully updated.'
         redirect_to @question 
@@ -70,6 +71,10 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:content,:bootsy_image_gallery_id, answers_attributes: [:id, :question_id, :content,:right, :bootsy_image_gallery_id])
+      params.require(:question).permit(:content,:bootsy_image_gallery_id,:answer_type, answers_attributes: [:id, :question_id, :content,:right])
     end
+
+    # def question_one
+    #   params.require(:question).permit(:content,:bootsy_image_gallery_id, :answer_type, answers_attributes: [0: {:id, :question_id, :content,:right} ])
+    # end
 end

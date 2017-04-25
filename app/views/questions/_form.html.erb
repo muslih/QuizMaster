@@ -1,26 +1,32 @@
 <%= form_for(@question) do |f| %>
   
-  <div class="form-group">
-    <%= f.label :content, "Question" %><br>
-    <%= f.bootsy_area :content, class:"form-control",rows: 5 %>
+  <div class="row">
+    <div class="form-group col-sm-9">
+      <%= f.label :content, "Question" %><br>
+      <%= f.bootsy_area :content, class:"form-control",rows: 5 %>
+    </div>
+
+    <div class="form-group col-sm-3" style="margin-top: 45px;">
+      <%= f.label :answer_type, "Answer Type" %><br>
+      <%= f.select(:answer_type, [["Short Text","text"],["Multiple Choice","choice"]], {:include_blank => "Select answer type!"}, {:class => "form-control"}) %>
+    </div>
   </div>
 
   <div class="row">
     <%= f.fields_for(:answers) do |answer| %>
 
-      <div class="col-sm-6">
+      <div class="col-sm-6 answer_list">
         <hr>
         <div class="form-group">
           <%= answer.label :content, "Answer" %>
-          <%= answer.bootsy_area :content,:class=>"form-control",rows: 3, editor_options: { font_styles: false } %>
+          <%= answer.text_field :content,:class=>"form-control" %>
         </div>
-        <div class="form-group">
+        <div class="form-group check">
           <%= answer.check_box :right %> <%= answer.label :right, "Check if it the correct answer!" %>
         </div>
       </div>
     <% end %>
   </div>
-
   <hr>
   <div class="actions">
     <%= f.submit "Save Question",:class=>"btn btn-primary pull-left" %>

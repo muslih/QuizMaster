@@ -11,7 +11,7 @@ class Question < ApplicationRecord
 
 	def answer_limit
 		if answer_type == 'text'
-  		errors.add(:answers, "You sir, have too many answer! #{answers.length}") if self.answers.length >= 1
+  		errors.add(:answers, "You sir, have too many answer! #{answers.length}") if self.answers.length > 1
   	end
   end
 

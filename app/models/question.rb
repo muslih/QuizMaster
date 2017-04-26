@@ -15,4 +15,8 @@ class Question < ApplicationRecord
   	end
   end
 
+  def answer_right
+  	answers.where(right: true).first
+  end
+
 end

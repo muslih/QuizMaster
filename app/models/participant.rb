@@ -78,7 +78,7 @@ class Participant < ApplicationRecord
     # @questions = ""
     @questions = []
     
-    Question.limit(5).order("RANDOM()").each do  |que|
+    Question.order("RANDOM()").each do  |que|
       @questions << que.id.to_s
     end
     

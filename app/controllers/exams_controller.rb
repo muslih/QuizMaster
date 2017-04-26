@@ -52,7 +52,6 @@ class ExamsController < ApplicationController
           format.js #{render :js => "window.location = '#{stats_exam_path}'"}
         end
 
-
       else
         format.html { render :edit }
         format.json { render json: @exam.errors, status: :unprocessable_entity }
@@ -78,7 +77,7 @@ class ExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.require(:exam).permit(:participant_id, :question_id, :answer_id,:doubt,:status)
+      params.require(:exam).permit(:participant_id, :question_id, :answer_id,:doubt,:status, :value)
     end
 
     def generate_questions

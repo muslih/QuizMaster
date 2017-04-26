@@ -31,7 +31,7 @@ class Exam < ApplicationRecord
         self.status = false
       end
     else
-      if answer.right
+      if correct_choice?(answer)
         self.status = true
       else
         self.status = false
@@ -41,6 +41,10 @@ class Exam < ApplicationRecord
 
   def correct_text?(value)
     return true if value == answer_right || value = answer_right_int.read_num || value = answer_right_int.read_num.gsub(' ','-') || answer_right_int.read_num.titleize || answer_right_int.read_num.capitalize || answer_right_int.read_num.upcase
+  end
+
+  def correct_choice?(value)
+    return true if answer_id == question.answer_right.id
   end
 end
 

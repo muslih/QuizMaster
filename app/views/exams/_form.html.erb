@@ -23,7 +23,7 @@
       <% @exam.question.answers.each do |jawaban| %>
 
       <li>
-      <!-- <input type="radio" name="<%= @exam.question.id %>"  data-id="<%= jawaban.id %>" data-status="<%= jawaban.right %>" class="answer"> <%= jawaban.content.html_safe %> -->
+      <input type="radio" name="<%= @exam.question.id %>"  data-id="<%= jawaban.id %>" data-status="<%= jawaban.right %>" class="answer"> <%= jawaban.content.html_safe %>
       </li>
       <% end %>
     </ol>
@@ -47,7 +47,7 @@
         ini = $(this);
         if (ini.is(':checked')) {
           $(target1).val(ini.data('id'));
-          // $(target2).val(ini.data('status'));
+          $(target2).val(ini.data('status'));
         }
       });
 

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
+  namespace :api do 
+    namespace :v1 do 
+      resources :exams #, only: [:index,:edit,  :update] 
+    end 
+  end
+
+
   get 'static/dashboard'
 
   resources :participants

@@ -19,7 +19,7 @@ class ExamsController < ApplicationController
     unless @participant.exams.present?
       generate_questions
     else
-      redirect_to edit_exam_path(current_user.exam.first.id)
+      redirect_to edit_exam_path(current_user.exams.first.id)
     end
     # @exam = current_user.exams.first
   end

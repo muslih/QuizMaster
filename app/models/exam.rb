@@ -23,7 +23,7 @@ class Exam < ApplicationRecord
   end
 
   def correct_answer
-    if question.answer_type == 'text'
+    if question.try(:answer_type) == 'text'
       # value = self.value.downcase
       answer_right = question.answer_right.content
       answer_right_int = question.answer_right.content.to_i
@@ -51,15 +51,15 @@ class Exam < ApplicationRecord
   end
 
   def your_answer
-    if question.answer_type == 'text'
+    if question.try(:answer_type) == 'text'
       value
     else
-      answer.content
+      answer.try(:content)
     end
   end
 
   def answer_right
-    question.answer_right
+    question.try(:answer_right)
   end
 end
 

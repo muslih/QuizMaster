@@ -11,6 +11,9 @@ class Exam < ApplicationRecord
   scope :next, lambda {|id,s_id| where("id > ? AND participant_id = ? ",id,s_id).order("id ASC") } # this is the default ordering for AR
   scope :previous, lambda {|id,s_id| where("id < ? AND participant_id = ?",id, s_id).order("id DESC") }
 
+  
+  # private 
+
   def next
     Exam.next(self.id,self.participant.try(:id)).first
   end
@@ -45,6 +48,18 @@ class Exam < ApplicationRecord
 
   def correct_choice?(value)
     return true if answer_id == question.answer_right.id
+  end
+
+  def your_answer
+    if question.answer_type == 'text'
+      value
+    else
+      answer.content
+    end
+  end
+
+  def answer_right
+    question.answer_right
   end
 end
 

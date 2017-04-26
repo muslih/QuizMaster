@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-sm-4">
 		<h1 class="page-header">Participant Result</h1>
 		<table class="table table-striped">
 			<tr>
@@ -39,16 +39,23 @@
 		<%= link_to 'Back', participants_path, class:"btn btn-warning" if teacher? %>
 
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-8">
 		<h1 class="page-header">Answer Detail</h1>
 		<table class="table table-striped">
 			<tbody>
 				<% @participant.exams.each_with_index do |q,i| %>
 				<tr>
 					<td><%= i + 1 %></td>
-					<td><%= q.question.content.html_safe %></td>
 					<td>
-						<%= answer_status q.status %>
+						<%= q.question.content.html_safe %>
+						<ul>
+							<li>
+								<strong>Your Answer :</strong> <%= q.your_answer %> <%= answer_status q.status %>
+							</li>
+							<li>
+								<strong>Expected Answer :</strong> <%= q.answer_right.content %>
+							</li>
+						</ul>
 					</td>
 				</tr>
 				<% end %> 

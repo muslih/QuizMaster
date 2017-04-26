@@ -11,8 +11,7 @@ RSpec.describe Question, type: :model do
   	it { should have_many(:answers).inverse_of(:question) }
 
   	it "Question nested attributes" do 
-  		should accept_nested_attributes_for(:answers).
-  		allow_destroy(true)
+  		should accept_nested_attributes_for(:answers)
   	end
   end
 end

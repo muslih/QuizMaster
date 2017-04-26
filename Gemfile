@@ -22,7 +22,7 @@ gem 'humanize'
 gem 'simple_form'
 
 gem 'responders'
-
+gem 'react-rails'
 # WYSIWYG
 gem 'bootsy'
 

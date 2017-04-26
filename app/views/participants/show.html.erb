@@ -48,15 +48,12 @@
 					<td><%= i + 1 %></td>
 					<td>
 						<%= q.question.content.html_safe %>
-						<ul>
-							<li>
-								<strong>Your Answer :</strong> <%= q.your_answer %> <%= answer_status q.status %>
-							</li>
-							<li>
+						<br>
+						<strong>Your Answer :</strong> <%= q.your_answer %> <%= answer_status q.status %>
+							<br>
 								<strong>Expected Answer :</strong> <%= q.answer_right.content %>
-							</li>
-						</ul>
 					</td>
+					
 				</tr>
 				<% end %> 
 			</tbody>

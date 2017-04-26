@@ -1,17 +1,5 @@
 <nav role="navigation">
-  <div id="navtop">
-      <div class="container">
-        <div class="col-sm-12">           
-          Implementation of Quipper's coding test.
-          <div class="pull-right">
-
-          Welcome <strong><%= current_user.name %> </strong> |
-	         <%= link_to "Signout", signout_path, method: "delete"%>
-
-          </div>       
-        </div>
-     </div>   
-  </div>
+  <%= react_component 'NavTop', username: current_user.name , signout: signout_path %>
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">

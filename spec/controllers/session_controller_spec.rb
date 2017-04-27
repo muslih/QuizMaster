@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionController, type: :controller do
-  let(:user) { FactoryGirl.build :user}
+  let(:user) { FactoryGirl.create :user}
   
   describe "GET #new" do
     context "unauthenticated users" do
@@ -30,7 +30,7 @@ RSpec.describe SessionController, type: :controller do
       end
 
       it "set success flash message" do
-        expect(flash[:success]).to eq("Welcome Teacher")
+        expect(flash[:success]).to eq("Welcome Teacher!")
       end
 
       it "creates a session record for valid input" do
@@ -43,7 +43,7 @@ RSpec.describe SessionController, type: :controller do
         post :create, params: {email: user.email, password: "password"}
       end 
       it "set danger flash" do
-        expect(flash[:success]).to be_present
+        expect(flash[:danger]).to be_present
       end
     end
   end

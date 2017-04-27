@@ -80,8 +80,6 @@ class Participant < ApplicationRecord
     return @data.to_s
   end
 
-
-
   def default_values
     val = ('0'..'9').to_a.shuffle.first(5).join
     self.code ||= val.to_s

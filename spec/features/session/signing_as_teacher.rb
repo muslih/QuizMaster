@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Signing teacher" do
-  # let(:user) { FactoryGirl.create(:user}
   before do 
     visit signin_path
   end

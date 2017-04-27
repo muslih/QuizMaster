@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     else
     	@model = @user
     	flash.now[:danger] = 'Failed to update user'
-      render :new
+      render :edit
     end
   end
 

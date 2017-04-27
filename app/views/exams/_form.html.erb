@@ -1,4 +1,4 @@
-<h3 class="page-header">Question Number <%= Participant.nomor_soal(@participant.id,@exam.id) %></h3>
+<h3 class="page-header">Question Numner <%= @participant.nomor_soal(@exam.id) %></h3>
 
 <%= simple_form_for(@exam,remote:true) do |f| %>
   <%= f.error_notification %>
@@ -23,7 +23,7 @@
       <% @exam.question.answers.each do |jawaban| %>
 
       <li>
-      <input type="radio" name="<%= @exam.question.id %>"  data-id="<%= jawaban.id %>" data-status="<%= jawaban.right %>" class="answer"> <%= jawaban.content.html_safe %>
+      <input type="radio" name="<%= @exam.question.id %>" id="answer_<%= jawaban.id %>"  data-id="<%= jawaban.id %>" data-status="<%= jawaban.right %>" class="answer"> <label for="answer_<%= jawaban.id %>"><%= jawaban.content.html_safe %></label>
       </li>
       <% end %>
     </ol>

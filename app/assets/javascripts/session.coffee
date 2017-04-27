@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 @loginform = (target) ->
-	console.log target
+	# console.log target
 	$(target).toggle()
 	$('.login-method').toggle()
 

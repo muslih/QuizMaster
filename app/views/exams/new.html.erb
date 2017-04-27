@@ -3,7 +3,7 @@
     <div class="exam-question">
       <%= render 'exams/form' %>
       <hr>
-      <%= react_component 'ExamForm' %>
+      <%= react_component 'ExamForm', exam_id: @exam.id,exam_number: @participant.nomor_soal(@exam.id) %>
     </div>
   </div>
 

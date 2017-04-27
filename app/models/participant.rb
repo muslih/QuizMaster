@@ -69,6 +69,19 @@ class Participant < ApplicationRecord
     return "#{@data}"
   end
 
+  def nomor_soal(no)
+    @a = 1
+    self.exams.each do |soal|
+      if soal.id == no
+        @data = @a
+      end
+      @a = @a + 1
+    end
+    return @data.to_s
+  end
+
+
+
   def default_values
     val = ('0'..'9').to_a.shuffle.first(5).join
     self.code ||= val.to_s

@@ -159,6 +159,10 @@ ul.nomargin{
     &:hover{
       background:rgba($primary-color, .1);
     }
+    label{
+      width:90%;
+      font-weight: normal;
+    }
   }
 }
 

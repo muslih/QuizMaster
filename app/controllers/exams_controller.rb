@@ -90,7 +90,7 @@ class ExamsController < ApplicationController
         @participant.exams.create(:question_id => s)
       end
 
-      return @exam = @participant.exams.first
+      # return @exam = @participant.exams.first
     end
 end
   

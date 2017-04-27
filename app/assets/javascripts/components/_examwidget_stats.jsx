@@ -18,7 +18,7 @@ var ExamwidgetStats = React.createClass({
 
 	blankAnswer(exams){
 		var blank = exams.filter((e) => {
-			return e.value == null && e.answer_id == null ; 
+			return ((e.value == null || e.value == "") && e.answer_id == null) ; 
 		});
 		this.setState({blank: blank.length});
 	},
@@ -32,7 +32,7 @@ var ExamwidgetStats = React.createClass({
 
 	answered(exams){
 		var doubt = exams.filter((e) => {
-			return e.value != null || e.answer_id != null; 
+			return ((e.value != null || e.value != "") && e.answer_id != null) ; 
 		});
 		this.setState({answered: doubt.length});
 	},

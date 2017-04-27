@@ -25,10 +25,8 @@ Quiz Master is Quipper's technical exam for web developers.
 - Question diveded to two modes, multiple choice mode and text mode.
 
 
-### Demo
-
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/Cx8xDwPusRk" frameborder="0" allowfullscreen></iframe>
-
+### Showcase
+[![ScreenShot](http://oi67.tinypic.com/34zha8p.jpg)](https://youtu.be/Cx8xDwPusRk)
 
 ### Database Relations
 

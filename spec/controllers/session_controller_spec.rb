@@ -10,13 +10,16 @@ RSpec.describe SessionController, type: :controller do
         should respond_with :ok
         should render_with_layout :login
         should render_template('new')
-        #get :new
-        #expect(response).to have_http_status(:success)
       end
     end
 
     context "authenticated users" do
+      it "redirect to the root path" do
+        session[:user_id] = user.id
 
+        get :new
+        expect(response).to redirect_to root_path
+      end
     end
   end
 
@@ -24,17 +27,21 @@ RSpec.describe SessionController, type: :controller do
 
   describe "POST #create" do
     context "successfull signin" do
-      # before do 
-      #   post :create, {email: user.email, password: user.password}
-      # end 
+      before do 
+        post :create, {email: user.email, password: user.password}
+      end 
       
-      # it "redirect to root path" do
-      #   expect(response).to redirect_to root_path
-      # end
+      it "redirect to root path" do
+        expect(response).to redirect_to root_path
+      end
 
-      # it "set success flash message" do
-      #   expect(flash[:success]).to eq("Sign in successfull")
-      # end
+      it "set success flash message" do
+        expect(flash[:success]).to eq("Welcome Teacher")
+      end
+
+      it "creates a session record for valid input" do
+        expect(session[:user_id]).to eq(user.id)
+      end
     end
 
     context "unsuccessful signin" do

@@ -21,7 +21,8 @@ class ExamsController < ApplicationController
     # else
     #   redirect_to edit_exam_path(current_user.exams.first.id)
     end
-    @exam = current_user.exams.first
+    redirect_to edit_exam_path(current_user.exams.first.id)
+    # @exam = current_user.exams.first
   end
 
   # GET /exams/1/edit

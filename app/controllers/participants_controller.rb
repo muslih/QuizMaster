@@ -29,9 +29,9 @@ class ParticipantsController < ApplicationController
 
     if @participant.save
       redirect_to participants_path
-      flash.now[:success]='Participant was successfully created.'
+      flash[:success] = "Participant was successfully created."
     else
-      flash.now[:danger]='Participant was unsuccessfully created.'
+      flash[:danger] = "Participant was unsuccessfully created."
       render :new
     end
   end
@@ -50,14 +50,12 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   # PATCH/PUT /participants/1.json
   def update
-    respond_to do |format|
-      if @participant.update(participant_params)
-        format.html { redirect_to @participant, notice: 'Participant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @participant }
-      else
-        format.html { render :edit }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
-      end
+    if @participant.update(participant_params)
+      flash[:success] = 'Participant was successfully updated.'
+      redirect_to participants_url
+    else
+      flash[:danger] = 'Failed to update participant.'
+      render :edit
     end
   end
 
@@ -65,10 +63,8 @@ class ParticipantsController < ApplicationController
   # DELETE /participants/1.json
   def destroy
     @participant.destroy
-    respond_to do |format|
-      format.html { redirect_to participants_url, notice: 'Participant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Participant was successfully destroyed.'
+    redirect_to participants_url
   end
 
   private

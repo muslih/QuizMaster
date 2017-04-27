@@ -26,7 +26,7 @@ RSpec.describe ReadNumber, type: :module do
     end
     
     it '1_000_000_000' do
-      expect(1000000000.read_num).to eq('one billion')
+      expect(1_000_000_000.read_num).to eq('one billion')
     end
 
     it 'thirteen' do
@@ -34,16 +34,16 @@ RSpec.describe ReadNumber, type: :module do
     end
 
     it '25' do
-      expect(25.read_num).to eq('twenty-five')
+      expect(25.read_num).to eq('twenty five')
     end
 
     it '229' do
-      expect(229.read_num).to eq('two hundred twenty-nine')
+      expect(229.read_num).to eq('two hundred twenty nine')
     end
 
 
     it '6543' do
-      expect(6543.read_num).to eq('six thousand five hundred forty-three')
+      expect(6543.read_num).to eq('six thousand five hundred forty three')
     end
 
   end

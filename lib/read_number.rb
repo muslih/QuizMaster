@@ -189,7 +189,6 @@ private
 
 end
 
-
 class Integer
   include ReadNumber
 end

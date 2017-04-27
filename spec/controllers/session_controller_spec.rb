@@ -15,20 +15,14 @@ RSpec.describe SessionController, type: :controller do
 
     context "authenticated users" do
       it "redirect to the root path" do
-        session[:user_id] = user.id
-
-        get :new
-        expect(response).to redirect_to root_path
       end
     end
   end
 
-  
-
   describe "POST #create" do
     context "successfull signin" do
       before do 
-        post :create, {email: user.email, password: user.password}
+        post :create, params: {email: user.email, password: user.password}
       end 
       
       it "redirect to root path" do
@@ -45,7 +39,12 @@ RSpec.describe SessionController, type: :controller do
     end
 
     context "unsuccessful signin" do
-
+      before do 
+        post :create, params: {email: user.email, password: "password"}
+      end 
+      it "set danger flash" do
+        expect(flash[:success]).to be_present
+      end
     end
   end
 

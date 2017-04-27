@@ -31,7 +31,7 @@ class ParticipantsController < ApplicationController
       redirect_to participants_path
       flash.now[:success]='Participant was successfully created.'
     else
-      flash.now[:success]='Participant was unsuccessfully created.'
+      flash.now[:danger]='Participant was unsuccessfully created.'
       render :new
     end
   end
@@ -79,6 +79,6 @@ class ParticipantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_params
-      params.require(:participant).permit(:name, :code, :q_list)
+      params.require(:participant).permit(:name)
     end
 end

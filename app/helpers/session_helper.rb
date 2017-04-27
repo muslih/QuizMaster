@@ -38,4 +38,5 @@ module SessionHelper
     session.delete(:auth)
     @current_user = nil
   end
+
 end

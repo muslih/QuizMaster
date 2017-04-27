@@ -1,7 +1,13 @@
 require 'rails_helper'
 
+
 RSpec.describe UsersController, type: :controller do
-  let(:user) { FactoryGirl.build :user}
+  include Rails.application.helpers
+
+  before(:each) do
+    @user = FactoryGirl.create :user, name: 'Teacher', email:'teacher@teacher.com', password:'teacher', password_confirmation:'teacher'
+    log_in @user
+  end
 
   describe 'GET #index' do
     before do
@@ -31,7 +37,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "added new user" do
-        expect(User.count).to eq(1)
+        expect(User.count).to eq(2)
       end
         
       it "redirect to index user path" do
@@ -49,7 +55,7 @@ RSpec.describe UsersController, type: :controller do
         post :create, params: { user: params }
       end
       it "unable to save user with blank email" do 
-        expect(User.count).to eq(0)
+        expect(User.count).to eq(1)
       end
 
       it "back to new form" do
@@ -104,7 +110,7 @@ RSpec.describe UsersController, type: :controller do
       delete :destroy, params: {id:user}
     end
     it "delete user" do
-      expect(User.count).to eq(0)
+      expect(User.count).to eq(1)
     end 
     it "show flash succes message" do 
       should set_flash[:success].to("User was successfully destroyed.")

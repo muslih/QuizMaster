@@ -10,7 +10,6 @@ var ExamForm = React.createClass({
 	componentDidMount() {
 		$.getJSON(`/api/v1/exams/${this.props.exam_id}.json`, (response) => { 
 			// console.log(response.id)
-			// this.setState({question: response.content});
 			this.setState({question: response});
 			this.setState({answers: response.answers})
 		});

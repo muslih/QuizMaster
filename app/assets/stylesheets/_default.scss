@@ -152,7 +152,7 @@ ul.nomargin{
     list-style-type: lower-alpha;
     padding: 5px;
     margin-bottom: 5px;
-    cursor: pointer;
+    
     input{
       margin-right: 5px;
     }
@@ -162,6 +162,7 @@ ul.nomargin{
     label{
       width:90%;
       font-weight: normal;
+      cursor: pointer;
     }
   }
 }

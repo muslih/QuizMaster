@@ -30,7 +30,7 @@ Quiz Master is Quipper's technical exam for web developers.
 
 ### Database Relations
 
-To view database relation run `bundle exec erd`, make sure you already installed [Graphviz 2.22+](https://voormedia.github.io/rails-erd/) before run the command.
+To view database relation run `bundle exec erd`, make sure you already installed [Graphviz 2.22+](https://voormedia.github.io/rails-erd/) before running the command.
 
 ### Technology
 

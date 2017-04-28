@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :participant do
     name "Particpant Name"
-    code "123"
+    code "1234"
     q_list ""
   end
 end

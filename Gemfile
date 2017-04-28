@@ -55,7 +55,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'guard-rspec'
+  gem 'spork'
+  gem 'guard-spork'
 end
 
 group :test do

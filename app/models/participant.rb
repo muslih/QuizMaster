@@ -49,8 +49,6 @@ class Participant < ApplicationRecord
   def self.jawab(id)
     @participant = Participant.find(id)
     @participant.exams.where.not(answer_id: nil).count
-    # @result = Exam.where(:participant_id => id).not(:answer_id => nil)
-    # return @result.count
   end 
 
   def self.blank(id)
@@ -86,7 +84,6 @@ class Participant < ApplicationRecord
   end
 
   def random_question
-    # @questions = ""
     @questions = []
     
     Question.order("RANDOM()").each do  |que|

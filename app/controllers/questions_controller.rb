@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
       else
         @model = @question
         flash.now[:danger] = "Question can not be update!"
-        render :new
+        render :edit
     end
   end
 
@@ -57,10 +57,8 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     @question.destroy
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to questions_url
+    flash.now[:success] = 'Question was successfully destroyed.'
   end
 
   private

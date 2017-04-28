@@ -20,7 +20,7 @@ RSpec.feature "Signing teacher" do
     expect(page).to have_content "Dashboard"
   end
 
-  scenario "invalid attribut" do
+  scenario "invalid attribute" do
     user = FactoryGirl.create(:user)
     fill_in "email", with: user.email
     fill_in "password", with: "blah"

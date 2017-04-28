@@ -7,7 +7,6 @@
     <%= f.input :participant_id,:as => :hidden,input_html: { value: current_user.id }  %>
     <%= f.input :question_id,:as => :hidden ,input_html: { value: @exam.question.id }%>
     
-    <%# f.input :status, :as => :hidden, input_html: {check: @exam.status}%>
     <div class="form-group exam-nomor">
       <%= @exam.question.content.html_safe %>  
     </div> 

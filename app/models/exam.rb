@@ -11,9 +11,6 @@ class Exam < ApplicationRecord
   scope :next, lambda {|id,s_id| where("id > ? AND participant_id = ? ",id,s_id).order("id ASC") } # this is the default ordering for AR
   scope :previous, lambda {|id,s_id| where("id < ? AND participant_id = ?",id, s_id).order("id DESC") }
 
-  
-  # private 
-
   def next
     Exam.next(self.id,self.participant.try(:id)).first
   end
@@ -24,11 +21,20 @@ class Exam < ApplicationRecord
 
   def correct_answer
     if question.try(:answer_type) == 'text'
-      # value = self.value.downcase
       answer_right = question.answer_right.content
       answer_right_int = question.answer_right.content.to_i
 
-      if value == answer_right || value = answer_right_int.read_num || value = answer_right_int.read_num.gsub(' ','-') || answer_right_int.read_num.titleize || answer_right_int.read_num.capitalize || answer_right_int.read_num.upcase
+      if value == answer_right
+        self.status = true
+      elsif value === answer_right_int.read_num
+        self.status = true
+      elsif value === answer_right_int.read_num.gsub(' ','-')
+        self.status = true
+      elsif value == answer_right_int.read_num.titleize
+        self.status = true
+      elsif value == answer_right_int.read_num.capitalize
+        self.status = true
+      elsif value == answer_right_int.read_num.upcase
         self.status = true
       else
         self.status = false
@@ -42,9 +48,6 @@ class Exam < ApplicationRecord
     end
   end
 
-  def correct_text?(value)
-    return true if value == answer_right || value = answer_right_int.read_num || value = answer_right_int.read_num.gsub(' ','-') || answer_right_int.read_num.titleize || answer_right_int.read_num.capitalize || answer_right_int.read_num.upcase
-  end
 
   def correct_choice?(value)
     return true if answer_id == question.answer_right.id

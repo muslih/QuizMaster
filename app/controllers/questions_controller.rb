@@ -71,8 +71,4 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:content,:bootsy_image_gallery_id,:answer_type, answers_attributes: [:id, :question_id, :content,:right])
     end
-
-    # def question_one
-    #   params.require(:question).permit(:content,:bootsy_image_gallery_id, :answer_type, answers_attributes: [0: {:id, :question_id, :content,:right} ])
-    # end
 end

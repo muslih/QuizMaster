@@ -15,8 +15,6 @@
         <% end %>
 
         <% link_to "#{@a}",edit_exam_path(soal),:class=>"btn btn-warning" %>
-      
-      <% #elsif soal.answer_id == '' or soal.answer_id.nil? %>
       <% elsif (soal.answer_id.nil? and soal.value.nil?) or (soal.answer_id.nil? and soal.value == "") %>
         <%= f.button :button,:class=>"btn btn-default",name: "number", value: soal.id do %>
           <%= @a %>

@@ -18,11 +18,8 @@ class ExamsController < ApplicationController
   def new
     unless @participant.exams.present?
       generate_questions
-    # else
-    #   redirect_to edit_exam_path(current_user.exams.first.id)
     end
     redirect_to edit_exam_path(current_user.exams.first.id)
-    # @exam = current_user.exams.first
   end
 
   # GET /exams/1/edit
@@ -36,23 +33,23 @@ class ExamsController < ApplicationController
       if @exam.update(exam_params)
         if params[:lanjut].present?
           if params[:lanjut]  == "Next"
-            format.html { redirect_to edit_exam_path(@exam.next.id)}#, notice: 'Lanjut.' }
+            format.html { redirect_to edit_exam_path(@exam.next.id)}
             format.json { render :show, status: :ok, location: @exam }
             format.js { redirect_to edit_exam_path(@exam.next.id)}
           else
-            format.html { redirect_to edit_exam_path(@exam.previous.id)}#, notice: 'Kembali' }
+            format.html { redirect_to edit_exam_path(@exam.previous.id)}
             format.json { render :show, status: :ok, location: @exam }
             format.js { redirect_to edit_exam_path(@exam.previous.id)}
           end
         end
 
         if params[:number].present?
-          format.html { redirect_to edit_exam_path(params[:number])}#, notice: 'Lanjut.' }
+          format.html { redirect_to edit_exam_path(params[:number])}
           format.json { render :show, status: :ok, location: @exam }
         end
 
         if params[:finish].present?
-          format.js #{render :js => "window.location = '#{stats_exam_path}'"}
+          format.js
         end
 
       else
